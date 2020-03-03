@@ -1,0 +1,28 @@
+.movieCard{
+    width: 250px;
+    height: 250px;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: 10px;
+    /* padding: 5px; */
+    position: relative;
+}
+.movieSatrs{
+    border: 2px solid black;
+    width: auto;
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    /* height: fit-content; */
+}
+.movieDescription p{
+    margin: 0px;
+    font-size: small;
+}
+.movieDescription{
+    border: 2px solid black;
+    position: absolute;
+    bottom:  -2px;
+    right: -2px;
+    width: inherit;
+}
