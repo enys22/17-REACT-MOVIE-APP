@@ -30,13 +30,11 @@ class App extends Component {
     this.setState({ search: { ...this.state.search, text: e.target.value } })
   }
   searchMovie = () => {
-    this.setState({
-      result: this.state.movies.filter(el => ( (el.title.indexOf(this.state.search.text) !== -1 || el.synopsis.indexOf(this.state.search.text) !== -1 || el.actors.indexOf(this.state.search.text) !== -1) && (el.rating >= this.state.search.rating) ) )
-    })
-  }
+      return this.state.movies.filter(el => ( (el.title.indexOf(this.state.search.text) !== -1 || el.synopsis.indexOf(this.state.search.text) !== -1 || el.actors.indexOf(this.state.search.text) !== -1) && (el.rating >= this.state.search.rating) ) )
+    }
   searchRating = (rat) => {
-    this.setState({ search: { ...this.state.search, rating: rat } })
-    this.searchMovie();
+    this.setState({ search: { ...this.state.search, rating: rat } }  );
+    this.searchMovie() ;
   }
   addMovie = (newMovie) =>{
     this.setState({ movies: [...this.state.movies,newMovie] })
@@ -55,13 +53,12 @@ class App extends Component {
 
           <div className='rating'> 
             <p>Minimum rating</p>
-            <div className="stars">
             <RatingStars rating={0} getRating={this.searchRating}/>
-            </div>
           </div>
         </div>
+
         <h3>{this.state.result.length ? `Result for movies ${this.state.search.text} with minimum ${this.state.search.rating} stars rating` : "Newest movie"}</h3>
-        <MovieList movieList={this.state.result.length ? this.state.result : this.state.movies} saveMovie={this.addMovie} />
+        <MovieList movieList={this.searchMovie()} saveMovie={this.addMovie} />
       </div>
     )
   }

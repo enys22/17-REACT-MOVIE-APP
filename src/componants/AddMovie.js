@@ -43,11 +43,6 @@ class AddMovie extends Component{
 
   }
  
-   afterOpenModal=()=> {
-    // references are now sync'd and can be accessed.
-    // subtitle.style.color = '#f00';
-  }
- 
    closeModal=()=> {
        this.setState({modalIsOpen : false})
     //this.setIsOpen(false);
@@ -82,11 +77,10 @@ class AddMovie extends Component{
 
   render(){
     return (
-      <div>
+      <div className="addMovie">
         <svg style={{margin : "60px"}} onClick={this.openModal} height="100px" viewBox="0 0 448 448" width="100px" xmlns="http://www.w3.org/2000/svg"><path d="m408 184h-136c-4.417969 0-8-3.582031-8-8v-136c0-22.089844-17.910156-40-40-40s-40 17.910156-40 40v136c0 4.417969-3.582031 8-8 8h-136c-22.089844 0-40 17.910156-40 40s17.910156 40 40 40h136c4.417969 0 8 3.582031 8 8v136c0 22.089844 17.910156 40 40 40s40-17.910156 40-40v-136c0-4.417969 3.582031-8 8-8h136c22.089844 0 40-17.910156 40-40s-17.910156-40-40-40zm0 0"/></svg>
         <Modal
           isOpen={this.state.modalIsOpen}
-          onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
           style={customStyles}
           contentLabel="Example Modal"
@@ -94,7 +88,7 @@ class AddMovie extends Component{
  
           <h2>Add a new movie</h2>
             <label>Title :</label>
-            <input type="text" name="title" value={this.state.newMovie.title} onChange={this.changeMovieTitle}/><br/>
+            <input type="text" className="title" value={this.state.newMovie.title} onChange={this.changeMovieTitle}/><br/>
             <label>Actors :</label>
             <input type="text" name="Actors" value={this.state.newMovie.actors} onChange={this.changeMovieActor}/><br/>
             <label>Synopsis :</label>
@@ -103,8 +97,8 @@ class AddMovie extends Component{
                 <label>Rating : </label>
                 <div><RatingStars rating={0} getRating={this.changeMovieRating}/></div>
             </div>
-            <input type="submit" value="Save" onClick={this.saveNewMovie}/>
-          <button onClick={this.closeModal}>close</button>
+            <input className="submit" type="submit" value="Save" onClick={this.saveNewMovie}/>
+          <button className="close" onClick={this.closeModal}>close</button>
         </Modal>
       </div>
     )

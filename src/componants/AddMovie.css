@@ -4,3 +4,13 @@
 label{
     margin-right:  5px;
 }
+
+input{
+    margin-bottom: 10px;
+}
+.addMovie *{
+    margin-bottom: 50px;
+}
+.submit{
+    margin: 5px;
+}
