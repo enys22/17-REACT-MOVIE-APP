@@ -57,7 +57,7 @@ class App extends Component {
           </div>
         </div>
 
-        <h3>{this.state.result.length ? `Result for movies ${this.state.search.text} with minimum ${this.state.search.rating} stars rating` : "Newest movie"}</h3>
+        <h3>{this.state.result.length || this.state.search.rating ? `Result for movies ${this.state.search.text} with minimum ${this.state.search.rating} stars rating` : "Newest movie"}</h3>
         <MovieList movieList={this.searchMovie()} saveMovie={this.addMovie} />
       </div>
     )
